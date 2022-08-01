@@ -5,19 +5,20 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class AFP {
+public class Company {
+
     @Id
-    private Integer idAFP;
+    private Integer idCompany;
 
     @Column
     private String name;
 
-    public Integer getIdAFP() {
-        return idAFP;
+    public Integer getIdCompany() {
+        return idCompany;
     }
 
-    public void setIdAFP(Integer idAFP) {
-        this.idAFP = idAFP;
+    public void setIdCompany(Integer idCompany) {
+        this.idCompany = idCompany;
     }
 
     public String getName() {
