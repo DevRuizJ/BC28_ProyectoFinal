@@ -1,3 +1,5 @@
+CREATE database BC28;
+
 USE bc28;
 
 CREATE TABLE MST_Document_Type (
