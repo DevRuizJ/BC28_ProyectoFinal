@@ -41,5 +41,7 @@ ADD COLUMN aporte_total decimal(10,2);
 
 CREATE TABLE WITHDRAWAL_REQUEST(
 	req_id integer not null auto_increment primary key,
-    req_cli_afp_id integer
+    req_cli_afp_id integer,
+    req_aporte_solicitado decimal(10,2) not null,
+    req_status boolean
 )
