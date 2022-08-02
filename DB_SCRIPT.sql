@@ -31,6 +31,15 @@ CREATE TABLE MST_AFP (
 );
 
 CREATE TABLE Client_AFP(
+	cli_afp_id integer not null auto_increment primary key,
 	cli_id integer,
     afp_id integer
 );
+
+ALTER TABLE Client_AFP
+ADD COLUMN aporte_total decimal(10,2);
+
+CREATE TABLE WITHDRAWAL_REQUEST(
+	req_id integer not null auto_increment primary key,
+    req_cli_afp_id integer
+)
