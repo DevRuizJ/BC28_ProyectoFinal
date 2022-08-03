@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,10 +20,8 @@ public class ClientController {
     private IClientService service;
 
     @GetMapping
-    public ResponseEntity<List<Client>> ClientList(){
-        List<Client> response =service.findAll();
+    public ResponseEntity<List<Client>> clientList(){
+        List<Client> response = service.findAll();
         return new ResponseEntity<List<Client>>(response, HttpStatus.OK);
     }
-
-
 }

@@ -13,7 +13,7 @@ public class JDBCConfiguration {
 /*
     try
     {
-        Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bc28", "root", "NttDara2022");
+        Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bc28", "root", "NttData2022");
 
         Statement statement = cn.createStatement();
 
