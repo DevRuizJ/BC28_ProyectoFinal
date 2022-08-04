@@ -30,6 +30,17 @@ public class Client {
     @Column
     private String phone;
 
+    @Column
+    private Integer idCompany;
+
+    public Integer getIdCompany() {
+        return idCompany;
+    }
+
+    public void setIdCompany(Integer idCompany) {
+        this.idCompany = idCompany;
+    }
+
     public Integer getIdClient() {
         return idClient;
     }
