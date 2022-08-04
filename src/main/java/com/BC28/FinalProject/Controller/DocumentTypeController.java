@@ -1,7 +1,6 @@
 package com.BC28.FinalProject.Controller;
 
 import com.BC28.FinalProject.Model.DocumentType;
-import com.BC28.FinalProject.Repository.IAfpRepository;
 import com.BC28.FinalProject.Repository.IDocumentTypeRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
