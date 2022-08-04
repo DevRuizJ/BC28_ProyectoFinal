@@ -13,6 +13,12 @@ public class Company {
     @Column
     private String name;
 
+    @Column
+    private Integer typeDoc;
+
+    @Column
+    private  String ruc;
+
     public Integer getIdCompany() {
         return idCompany;
     }

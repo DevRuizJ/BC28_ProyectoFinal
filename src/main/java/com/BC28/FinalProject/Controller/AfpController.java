@@ -1,11 +1,10 @@
 package com.BC28.FinalProject.Controller;
 
-import com.BC28.FinalProject.Model.AFP;
-import com.BC28.FinalProject.Service.IAFPService;
+import com.BC28.FinalProject.Model.Afp;
+import com.BC28.FinalProject.Repository.IAfpRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,19 +16,19 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/afp")
-public class AFPController {
+public class AfpController {
 
-    private static final Logger logger = LoggerFactory.getLogger(AFPController.class);
+    private static final Logger logger = LoggerFactory.getLogger(AfpController.class);
 
     @Autowired
-    private IAFPService service;
+    private IAfpRepository repo;
 
     @GetMapping("/list")
-    public ResponseEntity<List<AFP>> AFPList() {
-        List<AFP> response = new ArrayList<>();
+    public ResponseEntity<List<Afp>> AfpList() {
+        List<Afp> response = new ArrayList<>();
 
         try{
-            response = service.findAll();
+            response = repo.findAll();
         }
         catch (Exception ex){
 
@@ -38,6 +37,6 @@ public class AFPController {
             logger.info("Fin de controller");
         }
 
-        return new ResponseEntity<List<AFP>>(response, HttpStatus.OK);
+        return new ResponseEntity<List<Afp>>(response, HttpStatus.OK);
     }
 }

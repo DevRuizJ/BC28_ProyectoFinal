@@ -13,7 +13,7 @@ CREATE TABLE MST_Client (
     cli_docNumber varchar(50),
     cli_name varchar(100),
     cli_lastName varchar(100),
-    cli_motherLastName varchar(100),client_afp,
+    cli_motherLastName varchar(100),
 	cli_phone varchar(20),
     cli_email varchar(50)
 );

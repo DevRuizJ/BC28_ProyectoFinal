@@ -1,14 +1,19 @@
 package com.BC28.FinalProject.Model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Client {
 
     @Id
-    private Integer DNI;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer idClient;
+
+    @Column
+    private Integer idDocType;
+
+    @Column
+    private String docNumber;
 
     @Column
     private String name;
@@ -25,12 +30,28 @@ public class Client {
     @Column
     private String phone;
 
-    public Integer getDNI() {
-        return DNI;
+    public Integer getIdClient() {
+        return idClient;
     }
 
-    public void setDNI(Integer DNI) {
-        this.DNI = DNI;
+    public void setIdClient(Integer idClient) {
+        this.idClient = idClient;
+    }
+
+    public Integer getIdDocType() {
+        return idDocType;
+    }
+
+    public void setIdDocType(Integer idDocType) {
+        this.idDocType = idDocType;
+    }
+
+    public String getDocNumber() {
+        return docNumber;
+    }
+
+    public void setDocNumber(String docNumber) {
+        this.docNumber = docNumber;
     }
 
     public String getName() {
