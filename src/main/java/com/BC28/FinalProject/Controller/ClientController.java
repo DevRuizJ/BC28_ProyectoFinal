@@ -76,4 +76,22 @@ public class ClientController {
 
         return new ResponseEntity<String>(message, HttpStatus.CREATED);
     }
+
+    @DeleteMapping("/delete")
+    public ResponseEntity<String> deleteClient(@RequestBody Integer idClient){
+        String message = "No se pudo realizar la operación.";
+
+       try{
+           repo.deleteById(idClient);
+           message = "Cliente " + idClient + " eliminado";
+       }
+       catch (Exception ex){
+
+       }
+       finally {
+           logger.info("Fin de controller");
+       }
+
+       return new ResponseEntity<String>(message, HttpStatus.OK);
+    }
 }

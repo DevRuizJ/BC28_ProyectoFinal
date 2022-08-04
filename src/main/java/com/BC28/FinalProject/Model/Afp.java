@@ -1,5 +1,7 @@
 package com.BC28.FinalProject.Model;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
 @Entity
