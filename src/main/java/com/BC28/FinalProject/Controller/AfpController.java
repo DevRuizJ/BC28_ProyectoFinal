@@ -1,7 +1,6 @@
 package com.BC28.FinalProject.Controller;
 
 import com.BC28.FinalProject.Model.Afp;
-import com.BC28.FinalProject.Model.Client;
 import com.BC28.FinalProject.Repository.IAfpRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

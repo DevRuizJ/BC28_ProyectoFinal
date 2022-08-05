@@ -1,6 +1,5 @@
 package com.BC28.FinalProject.Controller;
 
-import com.BC28.FinalProject.Model.Afp;
 import com.BC28.FinalProject.Model.Company;
 import com.BC28.FinalProject.Repository.ICompanyRepository;
 import org.slf4j.Logger;
