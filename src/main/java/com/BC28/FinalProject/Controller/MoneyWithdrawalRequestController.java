@@ -1,6 +1,8 @@
 package com.BC28.FinalProject.Controller;
 
+import com.BC28.FinalProject.Model.ClientAfp;
 import com.BC28.FinalProject.Model.MoneyWithdrawalRequest;
+import com.BC28.FinalProject.Service.IClientAfpService;
 import com.BC28.FinalProject.Service.IMoneyWithdrawalRequestService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,6 +22,9 @@ public class MoneyWithdrawalRequestController {
 
     @Autowired
     private IMoneyWithdrawalRequestService service;
+
+    @Autowired
+    private IClientAfpService cliAfpServ;
 
     @GetMapping("/list")
     public ResponseEntity<List<MoneyWithdrawalRequest>> getWithdrawalList(){
@@ -64,8 +69,14 @@ public class MoneyWithdrawalRequestController {
         MoneyWithdrawalRequest response = new MoneyWithdrawalRequest();
 
         try{
-            response = service.register(withdrawal);
-            message = "Registro " + withdrawal.getIdWithdrawal() + " correcto";
+
+            if(!service.validateWithdrawal(withdrawal)) {
+                message = "El monto de Retiro es mayor a sus aportes, por favor indique el monto correctamente";
+            }
+            else {
+                response = service.register(withdrawal);
+                message = "Registro " + withdrawal.getIdWithdrawal() + " correcto";
+            }
         }
         catch (Exception ex){
             message = "Error: " + ex.getMessage();

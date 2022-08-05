@@ -19,6 +19,9 @@ public class ClientAfp {
     private Integer idClient;
 
     @Column
+    private Integer idCompany;
+
+    @Column
     private Integer idAfp;
 
     @Column

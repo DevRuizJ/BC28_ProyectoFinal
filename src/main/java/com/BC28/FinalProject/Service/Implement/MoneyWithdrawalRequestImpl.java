@@ -1,11 +1,10 @@
 package com.BC28.FinalProject.Service.Implement;
 
-import com.BC28.FinalProject.Model.Afp;
-import com.BC28.FinalProject.Model.Client;
 import com.BC28.FinalProject.Model.ClientAfp;
 import com.BC28.FinalProject.Model.MoneyWithdrawalRequest;
 import com.BC28.FinalProject.Repository.IMoneyWithdrawalRequestRepository;
 import com.BC28.FinalProject.Service.IAfpService;
+import com.BC28.FinalProject.Service.IClientAfpService;
 import com.BC28.FinalProject.Service.IClientService;
 import com.BC28.FinalProject.Service.IMoneyWithdrawalRequestService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,16 +14,13 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class IMoneyWithdrawalRequestImpl implements IMoneyWithdrawalRequestService {
+public class MoneyWithdrawalRequestImpl implements IMoneyWithdrawalRequestService {
 
     @Autowired
     private IMoneyWithdrawalRequestRepository withdrawalRepo;
 
     @Autowired
-    private IClientService cliServ;
-
-    @Autowired
-    private IAfpService afpServ;
+    private IClientAfpService cliAfpServ;
 
     @Override
     public MoneyWithdrawalRequest register(MoneyWithdrawalRequest obj) {
@@ -54,24 +50,26 @@ public class IMoneyWithdrawalRequestImpl implements IMoneyWithdrawalRequestServi
     }
 
     @Override
-    public String validateWithdrawal(MoneyWithdrawalRequest withdrawal) {
+    public Boolean validateWithdrawal(MoneyWithdrawalRequest withdrawal) {
 
-        String message = "No se pudo realizar la Operación";
-
-        Client cli = cliServ.listById(withdrawal.getIdClient());
-
-        Afp afp = afpServ.listById(withdrawal.getIdAfp());
-
-        ClientAfp cliAfp = new ClientAfp();
-
+        Boolean success = false;
 
         try{
 
+            ClientAfp cliAfp = cliAfpServ.listById(withdrawal.getIdCliAfp());
+
+            if(cliAfp.getTotal() < withdrawal.getTotalWithdrawal())
+            {
+                success = false;
+            }
+            else {
+                success = true;
+            }
         }
         catch (Exception ex){
-
+            success = false;
         }
 
-         return message;
+         return success;
     }
 }

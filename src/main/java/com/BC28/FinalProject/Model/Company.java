@@ -3,9 +3,7 @@ package com.BC28.FinalProject.Model;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Data
@@ -13,6 +11,7 @@ import javax.persistence.Id;
 public class Company {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer idCompany;
 
     @Column

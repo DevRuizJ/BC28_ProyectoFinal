@@ -15,13 +15,7 @@ public class MoneyWithdrawalRequest {
     private Integer idWithdrawal;
 
     @Column
-    private Integer idClient;
-
-    @Column
-    private Integer idCompany;
-
-    @Column
-    private Integer idAfp;
+    private Integer idCliAfp;
 
     @Column
     private Double totalWithdrawal;
