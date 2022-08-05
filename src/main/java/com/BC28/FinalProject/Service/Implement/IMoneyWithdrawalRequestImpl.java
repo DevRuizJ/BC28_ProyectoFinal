@@ -1,6 +1,8 @@
 package com.BC28.FinalProject.Service.Implement;
 
+import com.BC28.FinalProject.Model.Afp;
 import com.BC28.FinalProject.Model.Client;
+import com.BC28.FinalProject.Model.ClientAfp;
 import com.BC28.FinalProject.Model.MoneyWithdrawalRequest;
 import com.BC28.FinalProject.Repository.IMoneyWithdrawalRequestRepository;
 import com.BC28.FinalProject.Service.IAfpService;
@@ -56,7 +58,12 @@ public class IMoneyWithdrawalRequestImpl implements IMoneyWithdrawalRequestServi
 
         String message = "No se pudo realizar la Operación";
 
-        Client cli = null;
+        Client cli = cliServ.listById(withdrawal.getIdClient());
+
+        Afp afp = afpServ.listById(withdrawal.getIdAfp());
+
+        ClientAfp cliAfp = new ClientAfp();
+
 
         try{
 

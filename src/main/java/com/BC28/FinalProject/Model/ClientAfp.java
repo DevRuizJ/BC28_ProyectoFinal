@@ -1,8 +1,13 @@
 package com.BC28.FinalProject.Model;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 
 @Entity
+@Data
+@NoArgsConstructor
 @Table(name = "client_afp")
 public class ClientAfp {
 
@@ -19,35 +24,4 @@ public class ClientAfp {
     @Column
     private Double total;
 
-    public Integer getIdCliAfp() {
-        return idCliAfp;
-    }
-
-    public void setIdCliAfp(Integer idCliAfp) {
-        this.idCliAfp = idCliAfp;
-    }
-
-    public Integer getIdClient() {
-        return idClient;
-    }
-
-    public void setIdClient(Integer idClient) {
-        this.idClient = idClient;
-    }
-
-    public Integer getIdAfp() {
-        return idAfp;
-    }
-
-    public void setIdAfp(Integer idAfp) {
-        this.idAfp = idAfp;
-    }
-
-    public Double getTotal() {
-        return total;
-    }
-
-    public void setTotal(Double total) {
-        this.total = total;
-    }
 }

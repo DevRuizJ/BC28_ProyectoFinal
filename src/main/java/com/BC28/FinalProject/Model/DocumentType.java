@@ -1,8 +1,13 @@
 package com.BC28.FinalProject.Model;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 
 @Entity
+@Data
+@NoArgsConstructor
 public class DocumentType {
 
     @Id
@@ -11,20 +16,4 @@ public class DocumentType {
 
     @Column
     private String name;
-
-    public Integer getIdDocType() {
-        return idDocType;
-    }
-
-    public void setIdDocType(Integer idDocType) {
-        this.idDocType = idDocType;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }

@@ -1,10 +1,15 @@
 package com.BC28.FinalProject.Model;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
+@Data
+@NoArgsConstructor
 public class Company {
 
     @Id
@@ -18,20 +23,4 @@ public class Company {
 
     @Column
     private  String ruc;
-
-    public Integer getIdCompany() {
-        return idCompany;
-    }
-
-    public void setIdCompany(Integer idCompany) {
-        this.idCompany = idCompany;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }
