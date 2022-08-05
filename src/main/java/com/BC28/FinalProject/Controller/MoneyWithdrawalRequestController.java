@@ -9,6 +9,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RestController
 @RequestMapping("/withdrawal")
 public class MoneyWithdrawalRequestController {
@@ -18,8 +21,26 @@ public class MoneyWithdrawalRequestController {
     @Autowired
     private IMoneyWithdrawalRequestService service;
 
+    @GetMapping("/list")
+    public ResponseEntity<List<MoneyWithdrawalRequest>> getWithdrawalList(){
+
+        List<MoneyWithdrawalRequest> response = new ArrayList<>();
+
+        try{
+            response = service.list();
+        }
+        catch (Exception ex) {
+
+        }
+        finally {
+            logger.info("Fin de controller");
+        }
+
+        return new ResponseEntity<List<MoneyWithdrawalRequest>>(response, HttpStatus.OK);
+    }
+
     @GetMapping("/{idWithdrawal}")
-    public ResponseEntity<MoneyWithdrawalRequest> getClientById(@PathVariable("idWithdrawal") Integer idWithdrawal){
+    public ResponseEntity<MoneyWithdrawalRequest> getWithdrawalById(@PathVariable("idWithdrawal") Integer idWithdrawal){
 
         MoneyWithdrawalRequest response = new MoneyWithdrawalRequest();
 
