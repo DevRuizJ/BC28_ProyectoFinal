@@ -58,6 +58,8 @@ public class MoneyWithdrawalRequestImpl implements IMoneyWithdrawalRequestServic
 
             ClientAfp cliAfp = cliAfpServ.listById(withdrawal.getIdCliAfp());
 
+
+
             if(cliAfp.getTotal() < withdrawal.getTotalWithdrawal())
             {
                 success = false;
